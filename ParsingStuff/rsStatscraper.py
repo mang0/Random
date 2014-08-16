@@ -18,11 +18,28 @@ for x in range(0, len(skillNames)):
 	statsDict[skillNames[x]] = skillList[x]
 
 for skill in skillNames:
-	print(skill)
+	print("\t %s" % (skill))
 
 print()
-rinput = input("Enter skill: ").lower()
-print('%s' %(statsDict[rinput]))
+def frontEnd():
+	rinput = input("Enter skill: ").lower()
+	if rinput in skillNames:
+		print ("The stats for %s is '%s'" % (rinput , statsDict[rinput]))
+		print ("Do you want to check another stat?")
+		r_input = input("Yes/No: ").lower()
+		if (r_input == 'yes') or (r_input == 'y'):
+			frontEnd()
+		elif (r_input == 'no') or (r_input == 'n'):
+			print ("Okay, exiting program.")
+			exit()
+		else:
+			print ("I didn't give you that option. Ciao")
+			exit()
+	else:
+		print ("I'm sorry, that skill doesn't seem to exist. Check your spelling.")
+		frontEnd()
+
+frontEnd()
 
 file = open('data.txt', 'w')
 file.write(str_webpage)

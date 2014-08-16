@@ -15,7 +15,6 @@ for newList in split_webpage:
 for newerList in splitList:
 	bigDict[newerList[0].strip('"')] = float(newerList[1].strip('"'))
 
-
 def frontEnd():
 	print()
 	print ("These are the possible values you could wish to know: ")
